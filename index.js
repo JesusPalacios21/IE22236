@@ -1,7 +1,7 @@
 (function () {
   var CFG = {
     wa: "51934785061",
-    hero: "img/grupal3.jpg",
+    hero: "img/principal.jpg",
     photos: [
       { p: "img/grupalprincipal.jpg", t: "Nuestra promoción", d: "I.E. Magdalena Barbetta Aguilar · 22236" },
       { p: "img/grupal1.jpg", t: "Renacer", d: "Crecimiento y un nuevo comienzo" },
