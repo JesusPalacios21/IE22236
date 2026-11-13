@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Renacer 2026 · Invitación</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,400&family=Pinyon+Script&family=Jost:wght@300;400;500&family=Cinzel:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <canvas id="fx"></canvas>
+    <div id="gate">
+      <div class="logo">
+        <img
+          src="img/logo22236.png"
+          alt="Logo de la institución"
+          onerror="this.remove()"
+        />
+      </div>
+      <p class="cap">Estás invitado</p>
+      <p class="tw" aria-label="Renacer 2026">
+        <b
+          ><span style="--n: 0">R</span><span style="--n: 1">E</span
+          ><span style="--n: 2">N</span><span style="--n: 3">A</span
+          ><span style="--n: 4">C</span><span style="--n: 5">E</span
+          ><span style="--n: 6">R</span></b
+        ><br /><b
+          ><span style="--n: 7">2</span><span style="--n: 8">0</span
+          ><span style="--n: 9">2</span><span style="--n: 10">6</span></b
+        ><i class="caret" aria-hidden="true"></i>
+      </p>
+      <p class="cap sub">Crecimiento y un nuevo comienzo</p>
+      <button class="btn" id="open">Abrir invitación</button>
+    </div>
+    <button id="mus" aria-label="Activar o silenciar música">🔊</button>
+
+    <header id="hero">
+      <div class="ph">
+        <div class="bg" id="hbg"></div>
+        <div class="hc">
+          <p class="cap" style="--i: 0">Nos graduamos</p>
+          <p class="scr" style="--i: 1">Renacer 2026</p>
+          <p class="cap d" style="--i: 2">27 · Diciembre · 2026</p>
+          <p class="cap d" style="--i: 3; margin-top: 8px; opacity: 0.85">
+            I.E. Magdalena Barbetta Aguilar · 22236
+          </p>
+        </div>
+      </div>
+      <div class="pn">
+        <p>Crecimiento y un nuevo comienzo.</p>
+        <span class="hrt">♥</span>
+      </div>
+    </header>
+
+    <section class="band white">
+      <div class="in">
+        <h2 class="scr rv">Nos complace invitarte</h2>
+        <div class="ln rv"></div>
+        <p class="txt rv">
+          Con inmensa alegría culminamos esta hermosa etapa de nuestras vidas.
+        </p>
+        <p class="txt rv">
+          Nos honra invitarte a compartir con nosotros la ceremonia y la fiesta
+          de nuestra promoción.
+        </p>
+        <p class="txt rv" style="color: var(--blue)">
+          Tu presencia hará este recuerdo aún más especial.
+        </p>
+        <div class="stf rv">
+          <p class="cap">Nuestros padrinos</p>
+          <p class="pr">Angelica Bendezu Olivares</p>
+          <p class="pr">Arturo Torres Loyola</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band blue">
+      <div class="in">
+        <h2 class="scr rv">Falta muy poco</h2>
+        <div class="ln rv"></div>
+        <div class="cd rv">
+          <div><b id="d">0</b><span>Días</span></div>
+          <div><b id="h">0</b><span>Horas</span></div>
+          <div><b id="m">0</b><span>Min</span></div>
+          <div><b id="s">0</b><span>Seg</span></div>
+        </div>
+        <div class="row rv" style="margin-top: 34px">
+          <a
+            class="btn"
+            target="_blank"
+            rel="noopener"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Promoci%C3%B3n+Renacer+2026+-+I.E.+Magdalena+Barbetta+Aguilar+22236&dates=20261227T230000Z/20261228T030000Z&location=Recepciones+AMIOS,+Carretera+Sunampe+997,+Sunampe"
+            >Guardar en calendario</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="band mist">
+      <div class="in">
+        <h2 class="scr rv">Nuestros graduados</h2>
+        <div class="ln rv"></div>
+        <p class="hint rv">Toca la foto para verla en grande</p>
+        <div class="gal rv">
+          <div
+            class="gstage"
+            id="gstage"
+            tabindex="0"
+            aria-label="Fotos grupales de la promoción"
+          ></div>
+          <button class="gb gp" id="pv" aria-label="Foto anterior">‹</button>
+          <button class="gb gn" id="nx" aria-label="Foto siguiente">›</button>
+        </div>
+        <div class="thumbs rv" id="thumbs"></div>
+        <div class="pb"><i id="pbi"></i></div>
+        <p class="cnt" id="cnt"></p>
+      </div>
+    </section>
+    <div id="lb" role="dialog" aria-label="Foto ampliada">
+      <img id="lbi" alt="" /><button aria-label="Cerrar">×</button>
+    </div>
+
+    <section class="band white" id="grow">
+      <div class="in">
+        <h2 class="scr rv">Haz crecer tu semilla</h2>
+        <div class="ln rv"></div>
+        <p class="hint rv" id="ghint">Toca la regadera y mira cómo renace</p>
+        <div class="scene rv" id="scene">
+          <svg
+            id="gsvg"
+            viewBox="0 0 300 360"
+            role="img"
+            aria-label="Una semilla en una maceta que crece hasta florecer"
+          >
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#bcd3fb" />
+                <stop offset=".7" stop-color="#eaf2ff" />
+                <stop offset="1" stop-color="#f7faff" />
+              </linearGradient>
+              <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#fff8d8" stop-opacity=".95" />
+                <stop offset="1" stop-color="#fff8d8" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#8fc46a" />
+                <stop offset="1" stop-color="#5a9a46" />
+              </linearGradient>
+              <linearGradient id="hill2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#a6d47c" />
+                <stop offset="1" stop-color="#6aa953" />
+              </linearGradient>
+              <linearGradient id="potG" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#a4502e" />
+                <stop offset=".35" stop-color="#d9784a" />
+                <stop offset=".7" stop-color="#c0653b" />
+                <stop offset="1" stop-color="#8f4426" />
+              </linearGradient>
+              <linearGradient id="rimG" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#b25a35" />
+                <stop offset=".4" stop-color="#e58b5c" />
+                <stop offset="1" stop-color="#99492a" />
+              </linearGradient>
+              <linearGradient id="stemG" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#5c9a42" />
+                <stop offset=".5" stop-color="#8ccf68" />
+                <stop offset="1" stop-color="#4a8a37" />
+              </linearGradient>
+              <linearGradient id="leafG" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#8fd06a" />
+                <stop offset="1" stop-color="#3f8a3a" />
+              </linearGradient>
+              <radialGradient id="petB" cx=".5" cy="1" r="1">
+                <stop offset="0" stop-color="#2a4fa0" />
+                <stop offset="1" stop-color="#7ea3ee" />
+              </radialGradient>
+              <radialGradient id="petF" cx=".5" cy="1" r="1">
+                <stop offset="0" stop-color="#4a74cf" />
+                <stop offset="1" stop-color="#d6e4ff" />
+              </radialGradient>
+              <linearGradient id="wingG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#d6e6ff" />
+                <stop offset="1" stop-color="#3d66bf" />
+              </linearGradient>
+              <linearGradient id="wingG2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#9fbdf0" />
+                <stop offset="1" stop-color="#1a3578" />
+              </linearGradient>
+              <radialGradient id="pot-sh" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#1f3a1a" stop-opacity=".45" />
+                <stop offset="1" stop-color="#1f3a1a" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="300" height="360" rx="22" fill="url(#sky)" />
+            <circle cx="250" cy="58" r="64" fill="url(#sun)" class="sun" />
+            <g class="clouds">
+              <g class="cl c1">
+                <ellipse
+                  cx="60"
+                  cy="70"
+                  rx="30"
+                  ry="9"
+                  fill="#fff"
+                  opacity=".85"
+                />
+                <ellipse
+                  cx="80"
+                  cy="64"
+                  rx="20"
+                  ry="9"
+                  fill="#fff"
+                  opacity=".9"
+                />
+                <ellipse
+                  cx="46"
+                  cy="64"
+                  rx="15"
+                  ry="7"
+                  fill="#fff"
+                  opacity=".9"
+                />
+              </g>
+              <g class="cl c2">
+                <ellipse
+                  cx="200"
+                  cy="115"
+                  rx="26"
+                  ry="7"
+                  fill="#fff"
+                  opacity=".7"
+                />
+                <ellipse
+                  cx="216"
+                  cy="110"
+                  rx="16"
+                  ry="7"
+                  fill="#fff"
+                  opacity=".8"
+                />
+              </g>
+            </g>
+            <path
+              d="M0 318 Q70 292 150 312 T300 300 V360 H0Z"
+              fill="url(#hill)"
+            />
+            <path
+              d="M0 336 Q90 316 170 334 T300 326 V360 H0Z"
+              fill="url(#hill2)"
+            />
+            <ellipse cx="150" cy="334" rx="64" ry="9" fill="url(#pot-sh)" />
+            <g id="plantG">
+              <rect
+                id="stem"
+                x="148.4"
+                y="100"
+                width="3.2"
+                height="156"
+                rx="1.6"
+                fill="url(#stemG)"
+              />
+              <g transform="translate(150 250)" class="lf" data-s="1">
+                <g class="lfi" style="--sc: 0.5; --rot: -8deg">
+                  <path
+                    d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                    fill="url(#leafG)"
+                  />
+                  <path
+                    d="M0 0 Q-24 -6 -46 -8"
+                    stroke="#bfe39a"
+                    stroke-width="1"
+                    fill="none"
+                    opacity=".7"
+                  />
+                  <path
+                    d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                    stroke="#bfe39a"
+                    stroke-width=".6"
+                    fill="none"
+                    opacity=".45"
+                  />
+                </g>
+                <g transform="scale(-1 1)">
+                  <g class="lfi" style="--sc: 0.5; --rot: -8deg">
+                    <path
+                      d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                      fill="url(#leafG)"
+                    />
+                    <path
+                      d="M0 0 Q-24 -6 -46 -8"
+                      stroke="#bfe39a"
+                      stroke-width="1"
+                      fill="none"
+                      opacity=".7"
+                    />
+                    <path
+                      d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                      stroke="#bfe39a"
+                      stroke-width=".6"
+                      fill="none"
+                      opacity=".45"
+                    />
+                  </g>
+                </g>
+              </g>
+              <g transform="translate(150 234)" class="lf" data-s="2">
+                <g class="lfi" style="--sc: 0.7; --rot: -10deg">
+                  <path
+                    d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                    fill="url(#leafG)"
+                  />
+                  <path
+                    d="M0 0 Q-24 -6 -46 -8"
+                    stroke="#bfe39a"
+                    stroke-width="1"
+                    fill="none"
+                    opacity=".7"
+                  />
+                  <path
+                    d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                    stroke="#bfe39a"
+                    stroke-width=".6"
+                    fill="none"
+                    opacity=".45"
+                  />
+                </g>
+                <g transform="scale(-1 1)">
+                  <g class="lfi" style="--sc: 0.7; --rot: -10deg">
+                    <path
+                      d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                      fill="url(#leafG)"
+                    />
+                    <path
+                      d="M0 0 Q-24 -6 -46 -8"
+                      stroke="#bfe39a"
+                      stroke-width="1"
+                      fill="none"
+                      opacity=".7"
+                    />
+                    <path
+                      d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                      stroke="#bfe39a"
+                      stroke-width=".6"
+                      fill="none"
+                      opacity=".45"
+                    />
+                  </g>
+                </g>
+              </g>
+              <g transform="translate(150 210)" class="lf" data-s="3">
+                <g class="lfi" style="--sc: 0.9; --rot: -8deg">
+                  <path
+                    d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                    fill="url(#leafG)"
+                  />
+                  <path
+                    d="M0 0 Q-24 -6 -46 -8"
+                    stroke="#bfe39a"
+                    stroke-width="1"
+                    fill="none"
+                    opacity=".7"
+                  />
+                  <path
+                    d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                    stroke="#bfe39a"
+                    stroke-width=".6"
+                    fill="none"
+                    opacity=".45"
+                  />
+                </g>
+                <g transform="scale(-1 1)">
+                  <g class="lfi" style="--sc: 0.9; --rot: -8deg">
+                    <path
+                      d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                      fill="url(#leafG)"
+                    />
+                    <path
+                      d="M0 0 Q-24 -6 -46 -8"
+                      stroke="#bfe39a"
+                      stroke-width="1"
+                      fill="none"
+                      opacity=".7"
+                    />
+                    <path
+                      d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                      stroke="#bfe39a"
+                      stroke-width=".6"
+                      fill="none"
+                      opacity=".45"
+                    />
+                  </g>
+                </g>
+              </g>
+              <g transform="translate(150 190)" class="lf" data-s="3">
+                <g class="lfi" style="--sc: 1; --rot: -6deg">
+                  <path
+                    d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                    fill="url(#leafG)"
+                  />
+                  <path
+                    d="M0 0 Q-24 -6 -46 -8"
+                    stroke="#bfe39a"
+                    stroke-width="1"
+                    fill="none"
+                    opacity=".7"
+                  />
+                  <path
+                    d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                    stroke="#bfe39a"
+                    stroke-width=".6"
+                    fill="none"
+                    opacity=".45"
+                  />
+                </g>
+                <g transform="scale(-1 1)">
+                  <g class="lfi" style="--sc: 1; --rot: -6deg">
+                    <path
+                      d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                      fill="url(#leafG)"
+                    />
+                    <path
+                      d="M0 0 Q-24 -6 -46 -8"
+                      stroke="#bfe39a"
+                      stroke-width="1"
+                      fill="none"
+                      opacity=".7"
+                    />
+                    <path
+                      d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                      stroke="#bfe39a"
+                      stroke-width=".6"
+                      fill="none"
+                      opacity=".45"
+                    />
+                  </g>
+                </g>
+              </g>
+              <g transform="translate(150 162)" class="lf" data-s="4">
+                <g class="lfi" style="--sc: 1; --rot: -4deg">
+                  <path
+                    d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                    fill="url(#leafG)"
+                  />
+                  <path
+                    d="M0 0 Q-24 -6 -46 -8"
+                    stroke="#bfe39a"
+                    stroke-width="1"
+                    fill="none"
+                    opacity=".7"
+                  />
+                  <path
+                    d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                    stroke="#bfe39a"
+                    stroke-width=".6"
+                    fill="none"
+                    opacity=".45"
+                  />
+                </g>
+                <g transform="scale(-1 1)">
+                  <g class="lfi" style="--sc: 1; --rot: -4deg">
+                    <path
+                      d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                      fill="url(#leafG)"
+                    />
+                    <path
+                      d="M0 0 Q-24 -6 -46 -8"
+                      stroke="#bfe39a"
+                      stroke-width="1"
+                      fill="none"
+                      opacity=".7"
+                    />
+                    <path
+                      d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                      stroke="#bfe39a"
+                      stroke-width=".6"
+                      fill="none"
+                      opacity=".45"
+                    />
+                  </g>
+                </g>
+              </g>
+              <g transform="translate(150 140)" class="lf" data-s="4">
+                <g class="lfi" style="--sc: 0.85; --rot: -2deg">
+                  <path
+                    d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                    fill="url(#leafG)"
+                  />
+                  <path
+                    d="M0 0 Q-24 -6 -46 -8"
+                    stroke="#bfe39a"
+                    stroke-width="1"
+                    fill="none"
+                    opacity=".7"
+                  />
+                  <path
+                    d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                    stroke="#bfe39a"
+                    stroke-width=".6"
+                    fill="none"
+                    opacity=".45"
+                  />
+                </g>
+                <g transform="scale(-1 1)">
+                  <g class="lfi" style="--sc: 0.85; --rot: -2deg">
+                    <path
+                      d="M0 0 C-10 -16 -36 -22 -50 -8 C-36 9 -12 11 0 0Z"
+                      fill="url(#leafG)"
+                    />
+                    <path
+                      d="M0 0 Q-24 -6 -46 -8"
+                      stroke="#bfe39a"
+                      stroke-width="1"
+                      fill="none"
+                      opacity=".7"
+                    />
+                    <path
+                      d="M-14 -4 L-22 -12 M-26 -6 L-32 -14 M-14 -2 L-22 4 M-26 -5 L-32 2"
+                      stroke="#bfe39a"
+                      stroke-width=".6"
+                      fill="none"
+                      opacity=".45"
+                    />
+                  </g>
+                </g>
+              </g>
+              <g transform="translate(150 116)" class="bud">
+                <ellipse cx="0" cy="-8" rx="8" ry="12" fill="#6fb04f" />
+                <path
+                  d="M-8 -6 Q0 -22 8 -6 Q0 2 -8 -6Z"
+                  fill="#7ea3ee"
+                  opacity=".85"
+                />
+              </g>
+              <g transform="translate(150 100)">
+                <g class="flower">
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(0)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(36)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(72)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(108)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(144)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(180)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(216)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(252)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(288)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-23"
+                    rx="8.5"
+                    ry="23"
+                    transform="rotate(324)"
+                    fill="url(#petB)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(18)"
+                    fill="url(#petF)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(54)"
+                    fill="url(#petF)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(90)"
+                    fill="url(#petF)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(126)"
+                    fill="url(#petF)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(162)"
+                    fill="url(#petF)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(198)"
+                    fill="url(#petF)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(234)"
+                    fill="url(#petF)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(270)"
+                    fill="url(#petF)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(306)"
+                    fill="url(#petF)"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="-17"
+                    rx="6.5"
+                    ry="17"
+                    transform="rotate(342)"
+                    fill="url(#petF)"
+                  />
+                  <circle r="8.5" fill="#ffe9a8" />
+                  <circle
+                    r="8.5"
+                    fill="none"
+                    stroke="#e8c260"
+                    stroke-width="1.2"
+                  />
+                  <circle
+                    cx="2.0"
+                    cy="0.0"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="2.6"
+                    cy="3.3"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="-1.5"
+                    cy="6.2"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="-1.8"
+                    cy="0.9"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="-3.8"
+                    cy="-1.9"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="-1.3"
+                    cy="-6.3"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="1.3"
+                    cy="-1.5"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="4.2"
+                    cy="0.1"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="3.9"
+                    cy="5.1"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="-0.5"
+                    cy="1.9"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="-3.8"
+                    cy="1.7"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                  <circle
+                    cx="-5.7"
+                    cy="-2.9"
+                    r="1.1"
+                    fill="#b8860b"
+                    opacity=".8"
+                  />
+                </g>
+              </g>
+            </g>
+            <path
+              d="M104 268 L196 268 L185 322 Q184 329 177 329 L123 329 Q116 329 115 322Z"
+              fill="url(#potG)"
+            />
+            <path
+              d="M112 270 L124 270 L128 326 L121 326Z"
+              fill="#fff"
+              opacity=".13"
+            />
+            <rect
+              x="96"
+              y="253"
+              width="108"
+              height="17"
+              rx="5"
+              fill="url(#rimG)"
+            />
+            <rect
+              x="98"
+              y="254"
+              width="104"
+              height="3"
+              rx="1.5"
+              fill="#fff"
+              opacity=".25"
+            />
+            <ellipse class="soil" cx="150" cy="257" rx="47" ry="6.5" />
+            <g fill="#4a3322" opacity=".45">
+              <circle cx="128" cy="258" r="1.2" />
+              <circle cx="141" cy="260" r="1" />
+              <circle cx="165" cy="259" r="1.3" />
+              <circle cx="175" cy="257" r="1" />
+              <circle cx="154" cy="261" r=".9" />
+            </g>
+            <g class="seed">
+              <ellipse cx="150" cy="255" rx="6.5" ry="4" fill="#6b4423" />
+              <ellipse
+                cx="148.5"
+                cy="253.8"
+                rx="2.4"
+                ry="1.2"
+                fill="#a67c52"
+                opacity=".7"
+              />
+              <circle
+                cx="150"
+                cy="255"
+                r="10"
+                fill="none"
+                stroke="#2a4fa0"
+                stroke-width="1.5"
+                class="ring"
+              />
+            </g>
+            <g id="can">
+              <g class="bob">
+                <rect
+                  x="46"
+                  y="164"
+                  width="52"
+                  height="40"
+                  rx="9"
+                  fill="#3d66bf"
+                />
+                <rect
+                  x="46"
+                  y="164"
+                  width="52"
+                  height="12"
+                  rx="6"
+                  fill="#6a93e0"
+                />
+                <rect
+                  x="50"
+                  y="168"
+                  width="6"
+                  height="30"
+                  rx="3"
+                  fill="#fff"
+                  opacity=".25"
+                />
+                <path d="M98 190 L132 166 L138 172 L100 200Z" fill="#2a4fa0" />
+                <ellipse
+                  cx="135"
+                  cy="169"
+                  rx="6"
+                  ry="7"
+                  fill="#1a3578"
+                  transform="rotate(-38 135 169)"
+                />
+                <path
+                  d="M46 172 Q24 176 28 192 Q32 204 46 198"
+                  stroke="#2a4fa0"
+                  stroke-width="5"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M62 164 Q72 148 84 164"
+                  stroke="#2a4fa0"
+                  stroke-width="4.5"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+              </g>
+            </g>
+            <g id="drops"></g>
+          </svg>
+          <div class="bfs" aria-hidden="true">
+            <span class="bf b1"
+              ><svg viewBox="0 0 40 36" aria-hidden="true">
+                <g class="wl">
+                  <path
+                    d="M20 16 C9 -2 -3 4 3 17 C7 26 16 25 20 16Z"
+                    fill="url(#wingG)"
+                  />
+                  <path
+                    d="M20 17 C12 28 8 35 16 35 C22 35 22 24 20 17Z"
+                    fill="url(#wingG2)"
+                  />
+                </g>
+                <g class="wr">
+                  <path
+                    d="M20 16 C31 -2 43 4 37 17 C33 26 24 25 20 16Z"
+                    fill="url(#wingG)"
+                  />
+                  <path
+                    d="M20 17 C28 28 32 35 24 35 C18 35 18 24 20 17Z"
+                    fill="url(#wingG2)"
+                  />
+                </g>
+                <rect
+                  x="19"
+                  y="9"
+                  width="2"
+                  height="18"
+                  rx="1"
+                  fill="#1a3578"
+                /></svg></span
+            ><span class="bf b2"
+              ><svg viewBox="0 0 40 36" aria-hidden="true">
+                <g class="wl">
+                  <path
+                    d="M20 16 C9 -2 -3 4 3 17 C7 26 16 25 20 16Z"
+                    fill="url(#wingG)"
+                  />
+                  <path
+                    d="M20 17 C12 28 8 35 16 35 C22 35 22 24 20 17Z"
+                    fill="url(#wingG2)"
+                  />
+                </g>
+                <g class="wr">
+                  <path
+                    d="M20 16 C31 -2 43 4 37 17 C33 26 24 25 20 16Z"
+                    fill="url(#wingG)"
+                  />
+                  <path
+                    d="M20 17 C28 28 32 35 24 35 C18 35 18 24 20 17Z"
+                    fill="url(#wingG2)"
+                  />
+                </g>
+                <rect
+                  x="19"
+                  y="9"
+                  width="2"
+                  height="18"
+                  rx="1"
+                  fill="#1a3578"
+                /></svg></span
+            ><span class="bf b3"
+              ><svg viewBox="0 0 40 36" aria-hidden="true">
+                <g class="wl">
+                  <path
+                    d="M20 16 C9 -2 -3 4 3 17 C7 26 16 25 20 16Z"
+                    fill="url(#wingG)"
+                  />
+                  <path
+                    d="M20 17 C12 28 8 35 16 35 C22 35 22 24 20 17Z"
+                    fill="url(#wingG2)"
+                  />
+                </g>
+                <g class="wr">
+                  <path
+                    d="M20 16 C31 -2 43 4 37 17 C33 26 24 25 20 16Z"
+                    fill="url(#wingG)"
+                  />
+                  <path
+                    d="M20 17 C28 28 32 35 24 35 C18 35 18 24 20 17Z"
+                    fill="url(#wingG2)"
+                  />
+                </g>
+                <rect
+                  x="19"
+                  y="9"
+                  width="2"
+                  height="18"
+                  rx="1"
+                  fill="#1a3578"
+                /></svg
+            ></span>
+          </div>
+        </div>
+        <div class="gmeter rv" aria-hidden="true">
+          <i class="wd"></i><i class="wd"></i><i class="wd"></i
+          ><i class="wd"></i><i class="wd"></i>
+        </div>
+        <div class="gdone" id="gdone" aria-live="polite">
+          <p class="scr">¡Renacer 2026!</p>
+          <p class="cap">Crecimiento y un nuevo comienzo</p>
+        </div>
+        <div class="row rv" style="margin-top: 22px">
+          <button class="btn rb" id="water" type="button">Regar 💧</button>
+          <button class="btn ol" id="again" type="button" hidden>
+            Sembrar de nuevo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="band blue">
+      <div class="in">
+        <h2 class="scr rv">Programa</h2>
+        <div class="ln rv"></div>
+        <div class="tl">
+          <div class="rv">
+            <b>6:00 pm</b>
+            <article>
+              <h3>Recepción</h3>
+              <span>Bienvenida y fotos con los invitados</span>
+            </article>
+          </div>
+          <div class="rv">
+            <b>6:45 pm</b>
+            <article>
+              <h3>Ceremonia</h3>
+              <span>Entrega de diplomas y palabras de despedida</span>
+            </article>
+          </div>
+          <div class="rv">
+            <b>7:30 pm</b>
+            <article>
+              <h3>Brindis y vals</h3>
+              <span>Un momento para agradecer</span>
+            </article>
+          </div>
+          <div class="rv">
+            <b>8:00 pm</b>
+            <article>
+              <h3>Cena</h3>
+              <span>Compartimos la mesa en familia</span>
+            </article>
+          </div>
+          <div class="rv">
+            <b>9:00 pm</b>
+            <article>
+              <h3>Baile</h3>
+              <span>¡A celebrar toda la noche!</span>
+            </article>
+          </div>
+        </div>
+        <p class="rv" style="opacity: 0.7; margin-top: 14px; font-size: 0.9rem">
+          Horarios referenciales
+        </p>
+      </div>
+    </section>
+
+    <section class="band white">
+      <div class="in">
+        <h2 class="scr rv">¿Dónde será?</h2>
+        <div class="ln rv"></div>
+        <div class="card rv" style="padding-top: clamp(50px, 12vw, 90px)">
+          <p class="scr">Recepciones AMIOS</p>
+          <p class="cap" style="margin: 8px 0">
+            Carretera Sunampe N° 997 · Sunampe, Chincha
+          </p>
+          <p style="margin-bottom: 18px">
+            Domingo 27 de diciembre · 6:00 p. m.
+          </p>
+          <a
+            class="btn rb"
+            target="_blank"
+            rel="noopener"
+            href="https://www.google.com/maps/search/?api=1&query=Recepciones+AMIOS+Carretera+Sunampe+997+Sunampe+Chincha+Peru"
+            >Cómo llegar</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="band mist">
+      <div class="in">
+        <h2 class="scr rv">Detalles</h2>
+        <div class="ln rv"></div>
+        <div class="g3">
+          <div class="rv">
+            <i>🤵</i>
+            <h3>Caballeros</h3>
+            <p>
+              Terno elegante, camisa, pantalón de vestir y zapatos formales.
+            </p>
+          </div>
+          <div class="rv">
+            <i>👗</i>
+            <h3>Damas</h3>
+            <p>Vestido o conjunto elegante, con calzado cómodo y formal.</p>
+          </div>
+          <div class="rv">
+            <i>⏰</i>
+            <h3>Puntualidad</h3>
+            <p>Llega unos minutos antes de las 6:00 p. m.</p>
+          </div>
+          <div class="rv">
+            <i>📸</i>
+            <h3>Fotos</h3>
+            <p>Habrá un espacio para el recuerdo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band blue" id="rsvp">
+      <div class="in">
+        <h2 class="scr rv">Confirma tu asistencia</h2>
+        <div class="ln rv"></div>
+        <form class="rv" onsubmit="return false;">
+          <label
+            >Tu nombre<input
+              id="nm"
+              placeholder="Nombre y apellido"
+              autocomplete="name"
+          /></label>
+          <label
+            >Personas que asistirán<select id="ng">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select></label
+          >
+          <div class="row">
+            <button class="btn" id="yes">Sí, asistiré</button
+            ><button class="btn ol" id="no">No podré ir</button>
+          </div>
+          <div class="row" style="margin-top: 0">
+            <button class="btn ol" id="sh" type="button">
+              Compartir invitación
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer
+      class="band blue"
+      style="padding-bottom: 100px; background: #0f2352"
+    >
+      <div class="in rv">
+        <p class="scr">Gracias por ser parte de nuestra historia</p>
+        <p class="cap" style="margin-top: 14px">Renacer 2026</p>
+        <p style="opacity: 0.7">I.E. Magdalena Barbetta Aguilar · 22236</p>
+      </div>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
